@@ -1,0 +1,1711 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20243.24.1010.1014                               -->
+<workbook original-version='18.1' source-build='2024.3.0 (20243.24.1010.1014)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='orders+' inline='true' name='federated.0ntg6as1byhy58194ghgc0ls8dhj' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='orders' name='textscan.17843cf1bp3fed1g4ucyx1nxyvgw'>
+            <connection class='textscan' directory='Data/datasets' filename='orders.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.17843cf1bp3fed1g4ucyx1nxyvgw' name='orders.csv' table='[orders#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='ru_RU' separator=','>
+              <column datatype='string' name='order_id' ordinal='0' />
+              <column datatype='string' name='customer_id' ordinal='1' />
+              <column datatype='date' name='purchase_timestamp' ordinal='2' />
+              <column datatype='date' name='delivered_customer_date' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='textscan.17843cf1bp3fed1g4ucyx1nxyvgw' name='order_items.csv' table='[order_items#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='ru_RU' separator=','>
+              <column datatype='string' name='order_id' ordinal='0' />
+              <column datatype='real' name='delivery_time' ordinal='1' />
+              <column datatype='integer' name='order_item_id' ordinal='2' />
+              <column datatype='string' name='product_id' ordinal='3' />
+              <column datatype='string' name='seller_id' ordinal='4' />
+              <column datatype='real' name='price' ordinal='5' />
+              <column datatype='real' name='sales_value' ordinal='6' />
+              <column datatype='real' name='freight_value' ordinal='7' />
+            </columns>
+          </relation>
+          <relation connection='textscan.17843cf1bp3fed1g4ucyx1nxyvgw' name='products_category.csv' table='[products_category#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='ru_RU' separator=','>
+              <column datatype='string' name='product_id' ordinal='0' />
+              <column datatype='string' name='product_category_name' ordinal='1' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[customer_id]' value='[orders.csv].[customer_id]' />
+          <map key='[delivered_customer_date]' value='[orders.csv].[delivered_customer_date]' />
+          <map key='[delivery_time]' value='[order_items.csv].[delivery_time]' />
+          <map key='[freight_value]' value='[order_items.csv].[freight_value]' />
+          <map key='[order_id (order_items.csv)]' value='[order_items.csv].[order_id]' />
+          <map key='[order_id]' value='[orders.csv].[order_id]' />
+          <map key='[order_item_id]' value='[order_items.csv].[order_item_id]' />
+          <map key='[price]' value='[order_items.csv].[price]' />
+          <map key='[product_category_name]' value='[products_category.csv].[product_category_name]' />
+          <map key='[product_id (products_category.csv)]' value='[products_category.csv].[product_id]' />
+          <map key='[product_id]' value='[order_items.csv].[product_id]' />
+          <map key='[purchase_timestamp]' value='[orders.csv].[purchase_timestamp]' />
+          <map key='[sales_value]' value='[order_items.csv].[sales_value]' />
+          <map key='[seller_id]' value='[order_items.csv].[seller_id]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[orders.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;ru&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₽&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;ru_RU&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot; &quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[order_items.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;ru&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₽&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;ru_RU&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot; &quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[products_category.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;ru&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₽&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;ru_RU&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot; &quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[order_id]</local-name>
+            <parent-name>[orders.csv]</parent-name>
+            <remote-alias>order_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LRU_RRU' />
+            <object-id>[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_id]</local-name>
+            <parent-name>[orders.csv]</parent-name>
+            <remote-alias>customer_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LRU_RRU' />
+            <object-id>[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>purchase_timestamp</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[purchase_timestamp]</local-name>
+            <parent-name>[orders.csv]</parent-name>
+            <remote-alias>purchase_timestamp</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>delivered_customer_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[delivered_customer_date]</local-name>
+            <parent-name>[orders.csv]</parent-name>
+            <remote-alias>delivered_customer_date</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[order_id (order_items.csv)]</local-name>
+            <parent-name>[order_items.csv]</parent-name>
+            <remote-alias>order_id</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LRU_RRU' />
+            <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>delivery_time</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[delivery_time]</local-name>
+            <parent-name>[order_items.csv]</parent-name>
+            <remote-alias>delivery_time</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_item_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[order_item_id]</local-name>
+            <parent-name>[order_items.csv]</parent-name>
+            <remote-alias>order_item_id</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[product_id]</local-name>
+            <parent-name>[order_items.csv]</parent-name>
+            <remote-alias>product_id</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LRU_RRU' />
+            <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>seller_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[seller_id]</local-name>
+            <parent-name>[order_items.csv]</parent-name>
+            <remote-alias>seller_id</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LRU_RRU' />
+            <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[price]</local-name>
+            <parent-name>[order_items.csv]</parent-name>
+            <remote-alias>price</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sales_value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[sales_value]</local-name>
+            <parent-name>[order_items.csv]</parent-name>
+            <remote-alias>sales_value</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>freight_value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[freight_value]</local-name>
+            <parent-name>[order_items.csv]</parent-name>
+            <remote-alias>freight_value</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[product_id (products_category.csv)]</local-name>
+            <parent-name>[products_category.csv]</parent-name>
+            <remote-alias>product_id</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LRU_RRU' />
+            <object-id>[products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_category_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[product_category_name]</local-name>
+            <parent-name>[products_category.csv]</parent-name>
+            <remote-alias>product_category_name</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LRU_RRU' />
+            <object-id>[products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='COUNT(order_id)' datatype='integer' name='[Calculation_1361213022811365377]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNT(order_id)' />
+      </column>
+      <column caption='order_items.csv' datatype='table' name='[__tableau_internal_object_id__].[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]' role='measure' type='quantitative' />
+      <column caption='orders.csv' datatype='table' name='[__tableau_internal_object_id__].[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]' role='measure' type='quantitative' />
+      <column caption='products_category.csv' datatype='table' name='[__tableau_internal_object_id__].[products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7]' role='measure' type='quantitative' />
+      <column aggregation='None' caption='delivery_time (bin)' datatype='integer' name='[delivery_time (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[delivery_time]' peg='0' size='1' />
+      </column>
+      <column datatype='real' name='[delivery_time]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[order_item_id]' role='dimension' type='ordinal' />
+      <column datatype='string' name='[product_category_name]' role='dimension' type='nominal' />
+      <column-instance column='[product_category_name]' derivation='None' name='[none:product_category_name:nk]' pivot='key' type='nominal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='false' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='Data/TableauTemp/#TableauTemp_13izzn4130egot10ru34i011pvw0.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='01/12/2025 05:40:10 PM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='orders.csv_1D8CF0E8211D4C709CA6022B02ECA981' table='[Extract].[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]' type='table' />
+            <relation name='order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD' table='[Extract].[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]' type='table' />
+            <relation name='products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7' table='[Extract].[products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7]' type='table' />
+          </relation>
+          <cols>
+            <map key='[customer_id]' value='[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981].[customer_id]' />
+            <map key='[delivered_customer_date]' value='[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981].[delivered_customer_date]' />
+            <map key='[delivery_time]' value='[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD].[delivery_time]' />
+            <map key='[freight_value]' value='[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD].[freight_value]' />
+            <map key='[order_id (order_items.csv)]' value='[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD].[order_id]' />
+            <map key='[order_id]' value='[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981].[order_id]' />
+            <map key='[order_item_id]' value='[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD].[order_item_id]' />
+            <map key='[price]' value='[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD].[price]' />
+            <map key='[product_category_name]' value='[products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7].[product_category_name]' />
+            <map key='[product_id (products_category.csv)]' value='[products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7].[product_id]' />
+            <map key='[product_id]' value='[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD].[product_id]' />
+            <map key='[purchase_timestamp]' value='[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981].[purchase_timestamp]' />
+            <map key='[sales_value]' value='[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD].[sales_value]' />
+            <map key='[seller_id]' value='[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD].[seller_id]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>order_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[order_id]</local-name>
+              <parent-name>[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]</parent-name>
+              <remote-alias>order_id</remote-alias>
+              <ordinal>0</ordinal>
+              <family>orders.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>43426</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LRU_RRU' />
+              <object-id>[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>customer_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[customer_id]</local-name>
+              <parent-name>[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]</parent-name>
+              <remote-alias>customer_id</remote-alias>
+              <ordinal>1</ordinal>
+              <family>orders.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>43426</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LRU_RRU' />
+              <object-id>[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>purchase_timestamp</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[purchase_timestamp]</local-name>
+              <parent-name>[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]</parent-name>
+              <remote-alias>purchase_timestamp</remote-alias>
+              <ordinal>2</ordinal>
+              <family>orders.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>704</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>delivered_customer_date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[delivered_customer_date]</local-name>
+              <parent-name>[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]</parent-name>
+              <remote-alias>delivered_customer_date</remote-alias>
+              <ordinal>3</ordinal>
+              <family>orders.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>665</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>order_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[order_id (order_items.csv)]</local-name>
+              <parent-name>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</parent-name>
+              <remote-alias>order_id</remote-alias>
+              <ordinal>4</ordinal>
+              <family>order_items.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>16202</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LRU_RRU' />
+              <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>delivery_time</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[delivery_time]</local-name>
+              <parent-name>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</parent-name>
+              <remote-alias>delivery_time</remote-alias>
+              <ordinal>5</ordinal>
+              <family>order_items.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>75</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>order_item_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[order_item_id]</local-name>
+              <parent-name>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</parent-name>
+              <remote-alias>order_item_id</remote-alias>
+              <ordinal>6</ordinal>
+              <family>order_items.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>product_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[product_id]</local-name>
+              <parent-name>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</parent-name>
+              <remote-alias>product_id</remote-alias>
+              <ordinal>7</ordinal>
+              <family>order_items.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>16202</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LRU_RRU' />
+              <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>seller_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[seller_id]</local-name>
+              <parent-name>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</parent-name>
+              <remote-alias>seller_id</remote-alias>
+              <ordinal>8</ordinal>
+              <family>order_items.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1441</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LRU_RRU' />
+              <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>price</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[price]</local-name>
+              <parent-name>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</parent-name>
+              <remote-alias>price</remote-alias>
+              <ordinal>9</ordinal>
+              <family>order_items.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1652</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>sales_value</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[sales_value]</local-name>
+              <parent-name>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</parent-name>
+              <remote-alias>sales_value</remote-alias>
+              <ordinal>10</ordinal>
+              <family>order_items.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1652</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>freight_value</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[freight_value]</local-name>
+              <parent-name>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</parent-name>
+              <remote-alias>freight_value</remote-alias>
+              <ordinal>11</ordinal>
+              <family>order_items.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2095</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>product_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[product_id (products_category.csv)]</local-name>
+              <parent-name>[products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7]</parent-name>
+              <remote-alias>product_id</remote-alias>
+              <ordinal>12</ordinal>
+              <family>products_category.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>32328</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LRU_RRU' />
+              <object-id>[products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>product_category_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[product_category_name]</local-name>
+              <parent-name>[products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7]</parent-name>
+              <remote-alias>product_category_name</remote-alias>
+              <ordinal>13</ordinal>
+              <family>products_category.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>94</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LRU_RRU' />
+              <object-id>[products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:product_category_name:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;bed_bath_table&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;fashio_female_clothing&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;home_confort&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;tablets_printing_image&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;construction_tools_safety&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;furniture_decor&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;perfumery&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;arts_and_craftmanship&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;diapers_and_hygiene&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;health_beauty&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;small_appliances&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;cds_dvds_musicals&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;fashion_shoes&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;kitchen_dining_laundry_garden_furniture&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;books_general_interest&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;fashion_bags_accessories&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;home_construction&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;telephony&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;audio&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;drinks&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;home_appliances&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;small_appliances_home_oven_and_coffee&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;construction_tools_construction&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;food_drink&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;office_furniture&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;agro_industry_and_commerce&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;cool_stuff&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;furniture_living_room&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;pet_shop&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;computers_accessories&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;flowers&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;music&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;auto&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;dvds_blu_ray&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;home_appliances_2&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;sports_leisure&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;christmas_supplies&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;fashion_sport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;la_cuisine&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;cine_photo&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;fashion_underwear_beach&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;luggage_accessories&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;consoles_games&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;food&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;musical_instruments&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;construction_tools_lights&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;furniture_bedroom&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;party_supplies&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;books_imported&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;fashion_childrens_clothes&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;housewares&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;toys&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;baby&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;electronics&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;home_comfort_2&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;stationery&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;air_conditioning&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;costruction_tools_garden&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;furniture_mattress_and_upholstery&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;security_and_services&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;computers&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;fixed_telephony&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;market_place&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;books_technical&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;fashion_male_clothing&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;industry_commerce_and_business&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;watches_gifts&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;art&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;costruction_tools_tools&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;garden_tools&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;signaling_and_security&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Russia&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='order_id (order_items.csv)' />
+        <field-sort-custom-order field='Calculation_1361213022811365377' />
+        <field-sort-custom-order field='Calculation_1361213022805757952' />
+        <field-sort-custom-order field='delivery_time' />
+        <field-sort-custom-order field='order_item_id' />
+        <field-sort-custom-order field='product_id' />
+        <field-sort-custom-order field='seller_id' />
+        <field-sort-custom-order field='price' />
+        <field-sort-custom-order field='sales_value' />
+        <field-sort-custom-order field='freight_value' />
+      </field-sort-info>
+      <object-graph>
+        <objects>
+          <object caption='order_items.csv' id='order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD'>
+            <properties context=''>
+              <relation connection='textscan.17843cf1bp3fed1g4ucyx1nxyvgw' name='order_items.csv' table='[order_items#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='ru_RU' separator=','>
+                  <column datatype='string' name='order_id' ordinal='0' />
+                  <column datatype='real' name='delivery_time' ordinal='1' />
+                  <column datatype='integer' name='order_item_id' ordinal='2' />
+                  <column datatype='string' name='product_id' ordinal='3' />
+                  <column datatype='string' name='seller_id' ordinal='4' />
+                  <column datatype='real' name='price' ordinal='5' />
+                  <column datatype='real' name='sales_value' ordinal='6' />
+                  <column datatype='real' name='freight_value' ordinal='7' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD' table='[Extract].[order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD]' type='table' />
+            </properties>
+          </object>
+          <object caption='orders.csv' id='orders.csv_1D8CF0E8211D4C709CA6022B02ECA981'>
+            <properties context=''>
+              <relation connection='textscan.17843cf1bp3fed1g4ucyx1nxyvgw' name='orders.csv' table='[orders#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='ru_RU' separator=','>
+                  <column datatype='string' name='order_id' ordinal='0' />
+                  <column datatype='string' name='customer_id' ordinal='1' />
+                  <column datatype='date' name='purchase_timestamp' ordinal='2' />
+                  <column datatype='date' name='delivered_customer_date' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='orders.csv_1D8CF0E8211D4C709CA6022B02ECA981' table='[Extract].[orders.csv_1D8CF0E8211D4C709CA6022B02ECA981]' type='table' />
+            </properties>
+          </object>
+          <object caption='products_category.csv' id='products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7'>
+            <properties context=''>
+              <relation connection='textscan.17843cf1bp3fed1g4ucyx1nxyvgw' name='products_category.csv' table='[products_category#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='ru_RU' separator=','>
+                  <column datatype='string' name='product_id' ordinal='0' />
+                  <column datatype='string' name='product_category_name' ordinal='1' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7' table='[Extract].[products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[order_id]' />
+              <expression op='[order_id (order_items.csv)]' />
+            </expression>
+            <first-end-point object-id='orders.csv_1D8CF0E8211D4C709CA6022B02ECA981' />
+            <second-end-point object-id='order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[product_id]' />
+              <expression op='[product_id (products_category.csv)]' />
+            </expression>
+            <first-end-point object-id='order_items.csv_588B2E88FB814DF3B67484B8D0A06DBD' />
+            <second-end-point object-id='products_category.csv_4C85CE38CD4343F5B7E4EE0508EE67E7' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='время доставки'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>Распределение заказов по времени доставки (в днях)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='orders+' name='federated.0ntg6as1byhy58194ghgc0ls8dhj' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0ntg6as1byhy58194ghgc0ls8dhj'>
+            <column caption='COUNT(order_id)' datatype='integer' name='[Calculation_1361213022811365377]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNT(order_id)' />
+            </column>
+            <column aggregation='None' caption='delivery_time (bin)' datatype='integer' name='[delivery_time (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[delivery_time]' peg='0' size='1' />
+            </column>
+            <column datatype='real' name='[delivery_time]' role='measure' type='quantitative' />
+            <column-instance column='[delivery_time (bin)]' derivation='None' name='[none:delivery_time (bin):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[delivery_time]' derivation='None' name='[none:delivery_time:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[order_id (order_items.csv)]' derivation='None' name='[none:order_id (order_items.csv):nk]' pivot='key' type='nominal' />
+            <column datatype='string' name='[order_id (order_items.csv)]' role='dimension' type='nominal' />
+            <column datatype='string' name='[order_id]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1361213022811365377]' derivation='User' name='[usr:Calculation_1361213022811365377:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:delivery_time (bin):ok]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='1' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='2' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='3' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='4' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='5' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='6' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='7' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='8' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='9' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='10' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='11' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='12' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='13' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='14' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='15' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='16' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='17' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='18' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='19' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='20' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='21' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='22' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='23' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='24' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='25' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='26' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='27' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='28' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='29' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='30' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='31' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='32' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='33' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='34' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='35' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='36' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='37' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='38' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='39' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='40' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='41' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='42' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='43' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='44' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='45' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='46' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='47' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='48' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='49' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='50' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='51' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='52' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='53' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='54' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='55' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='56' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='57' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='58' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='59' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='60' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='61' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='63' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='64' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='65' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='68' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='69' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='71' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='73' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='75' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='77' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='80' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='84' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='86' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='91' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='93' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='103' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='104' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='105' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='107' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='115' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='117' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='119' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='127' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='144' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='146' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='172' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='173' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='175' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='187' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='188' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='190' />
+              <groupfilter function='member' level='[none:delivery_time (bin):ok]' member='196' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:delivery_time:qk]' included-values='in-range'>
+            <min>1.0</min>
+            <max>30.0</max>
+          </filter>
+          <slices>
+            <column>[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:delivery_time (bin):ok]</column>
+            <column>[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:delivery_time:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' domain-expand='false' field='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[usr:Calculation_1361213022811365377:qk]' field-type='quantitative' scope='cols' type='space' />
+            <format attr='height' field='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[usr:Calculation_1361213022811365377:qk]' value='64' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[usr:Calculation_1361213022811365377:qk]' value='n#,##0.00;-#,##0.00' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:order_id (order_items.csv):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-color' value='#d37295' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:delivery_time (bin):ok]</rows>
+        <cols>[federated.0ntg6as1byhy58194ghgc0ls8dhj].[usr:Calculation_1361213022811365377:qk]</cols>
+      </table>
+      <simple-id uuid='{47A4EA28-85F4-4D30-9F37-E21E1718E275}' />
+    </worksheet>
+    <worksheet name='динамика продаж'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>Динамика продаж по месяцам</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='orders+' name='federated.0ntg6as1byhy58194ghgc0ls8dhj' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0ntg6as1byhy58194ghgc0ls8dhj'>
+            <column-instance column='[purchase_timestamp]' derivation='Month' name='[mn:purchase_timestamp:ok]' pivot='key' type='ordinal' />
+            <column datatype='date' name='[purchase_timestamp]' role='dimension' type='ordinal' />
+            <column datatype='real' name='[sales_value]' role='measure' type='quantitative' />
+            <column-instance column='[sales_value]' derivation='Sum' name='[sum:sales_value:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <trendline degree='3' enable-confidence-bands='false' enable-instant-analytics='true' enabled='true' exclude-color='false' exclude-intercept='false' fit='polynomial' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-color' value='#e15759' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]</rows>
+        <cols>[federated.0ntg6as1byhy58194ghgc0ls8dhj].[mn:purchase_timestamp:ok]</cols>
+      </table>
+      <simple-id uuid='{D98CB2F7-C5E5-4396-AA0E-3E5BAACB5096}' />
+    </worksheet>
+    <worksheet name='доля продаж'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>Доля продаж по категориям продуктов</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='orders+' name='federated.0ntg6as1byhy58194ghgc0ls8dhj' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0ntg6as1byhy58194ghgc0ls8dhj'>
+            <column-instance column='[product_category_name]' derivation='None' name='[none:product_category_name:nk]' pivot='key' type='nominal' />
+            <column datatype='string' name='[product_category_name]' role='dimension' type='nominal' />
+            <column datatype='real' name='[sales_value]' role='measure' type='quantitative' />
+            <column-instance column='[sales_value]' derivation='Sum' name='[sum:sales_value:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_category_name:nk]' direction='DESC' using='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' />
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='916' />
+            <format attr='height' value='663' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_category_name:nk]' />
+              <wedge-size column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' />
+              <size column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.7251380681991577' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{566FBBE1-1633-402C-8DAB-7E137939E1C9}' />
+    </worksheet>
+    <worksheet name='объем продаж'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>Объем продаж по категориям продуктов</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='orders+' name='federated.0ntg6as1byhy58194ghgc0ls8dhj' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0ntg6as1byhy58194ghgc0ls8dhj'>
+            <column-instance column='[product_category_name]' derivation='None' name='[none:product_category_name:nk]' pivot='key' type='nominal' />
+            <column datatype='string' name='[product_category_name]' role='dimension' type='nominal' />
+            <column datatype='real' name='[sales_value]' role='measure' type='quantitative' />
+            <column-instance column='[sales_value]' derivation='Sum' name='[sum:sales_value:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_category_name:nk]' direction='DESC' using='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' />
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='height-header' value='17' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_category_name:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]</rows>
+        <cols>[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_category_name:nk]</cols>
+      </table>
+      <simple-id uuid='{8C9C6AE9-80AA-490A-9F04-997D3B9AB878}' />
+    </worksheet>
+    <worksheet name='средний чек'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>Средний чек по категориям</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='orders+' name='federated.0ntg6as1byhy58194ghgc0ls8dhj' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0ntg6as1byhy58194ghgc0ls8dhj'>
+            <column-instance column='[sales_value]' derivation='Avg' name='[avg:sales_value:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[product_category_name]' derivation='None' name='[none:product_category_name:nk]' pivot='key' type='nominal' />
+            <column datatype='string' name='[product_category_name]' role='dimension' type='nominal' />
+            <column datatype='real' name='[sales_value]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_category_name:nk]' direction='DESC' using='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[avg:sales_value:qk]' />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_category_name:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='has-stroke' value='true' />
+                <format attr='stroke-color' value='#aa55ff' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_category_name:nk]</rows>
+        <cols>[federated.0ntg6as1byhy58194ghgc0ls8dhj].[avg:sales_value:qk]</cols>
+      </table>
+      <simple-id uuid='{49021F13-A11E-4861-B9CF-B4D7A2090363}' />
+    </worksheet>
+    <worksheet name='топ-10'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>Топ-10 товаров по продажам</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='orders+' name='federated.0ntg6as1byhy58194ghgc0ls8dhj' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0ntg6as1byhy58194ghgc0ls8dhj'>
+            <column-instance column='[product_category_name]' derivation='Attribute' name='[attr:product_category_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[product_category_name]' derivation='None' name='[none:product_category_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[product_id (products_category.csv)]' derivation='None' name='[none:product_id (products_category.csv):nk]' pivot='key' type='nominal' />
+            <column datatype='string' name='[product_category_name]' role='dimension' type='nominal' />
+            <column datatype='string' name='[product_id (products_category.csv)]' role='dimension' type='nominal' />
+            <column datatype='real' name='[sales_value]' role='measure' type='quantitative' />
+            <column-instance column='[sales_value]' derivation='Sum' name='[sum:sales_value:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_id (products_category.csv):nk]'>
+            <groupfilter count='10' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='SUM([sales_value])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:product_id (products_category.csv):nk]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <computed-sort column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_id (products_category.csv):nk]' direction='DESC' using='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' />
+          <slices>
+            <column>[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_id (products_category.csv):nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_id (products_category.csv):nk]' value='132' />
+            <format attr='text-format' data-class='subtotal' field='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' value='n#,##0.00;-#,##0.00' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' />
+              <tooltip column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[attr:product_category_name:nk]' />
+              <text column='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='1.9450275897979736' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_id (products_category.csv):nk] / [federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_category_name:nk])</rows>
+        <cols>[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]</cols>
+      </table>
+      <simple-id uuid='{FCEF5F5C-F2EC-4B2B-A1B7-10A3236AAE02}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Динамика и показатели продаж'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>Общий отчет по продажам</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98002' id='18' param='vert' type-v2='layout-flow' w='99062' x='469' y='999'>
+            <zone h='98002' id='8' param='horz' type-v2='layout-flow' w='99062' x='469' y='999'>
+              <zone h='98002' id='6' type-v2='layout-basic' w='46455' x='469' y='999'>
+                <zone h='35955' id='3' name='динамика продаж' w='46455' x='469' y='63046'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='32667' id='21' name='объем продаж' w='46455' x='469' y='999'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='29380' id='27' name='время доставки' w='46455' x='469' y='33666'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone fixed-size='898' h='98002' id='19' is-fixed='true' type-v2='layout-basic' w='52607' x='46924' y='999'>
+                <zone h='98002' id='23' is-fixed='true' type-v2='layout-basic' w='52607' x='46924' y='999'>
+                  <zone h='32667' id='20' param='horz' type-v2='layout-flow' w='52607' x='46924' y='999'>
+                    <zone h='32667' id='22' name='средний чек' w='52607' x='46924' y='999'>
+                      <layout-cache fixed-size-h='1570' minwidth='260' type-h='fixed' type-w='scalable' />
+                      <zone-style>
+                        <format attr='border-color' value='#000000' />
+                        <format attr='border-style' value='none' />
+                        <format attr='border-width' value='0' />
+                        <format attr='margin' value='4' />
+                      </zone-style>
+                    </zone>
+                  </zone>
+                  <zone h='34457' id='24' param='vert' type-v2='layout-flow' w='52607' x='46924' y='64544'>
+                    <zone h='26467' id='15' name='топ-10' w='52607' x='46924' y='64544'>
+                      <layout-cache minwidth='260' type-h='cell' type-w='scalable' />
+                      <zone-style>
+                        <format attr='border-color' value='#000000' />
+                        <format attr='border-style' value='none' />
+                        <format attr='border-width' value='0' />
+                        <format attr='margin' value='4' />
+                      </zone-style>
+                    </zone>
+                    <zone fixed-size='24' h='3995' id='16' is-fixed='true' name='топ-10' pane-specification-id='0' param='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' type-v2='color' w='52607' x='46924' y='91011'>
+                      <zone-style>
+                        <format attr='border-color' value='#000000' />
+                        <format attr='border-style' value='none' />
+                        <format attr='border-width' value='0' />
+                        <format attr='margin' value='4' />
+                      </zone-style>
+                    </zone>
+                    <zone fixed-size='24' h='3995' id='29' is-fixed='true' name='доля продаж' pane-specification-id='0' param='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' type-v2='size' w='52607' x='46924' y='95006'>
+                      <zone-style>
+                        <format attr='border-color' value='#000000' />
+                        <format attr='border-style' value='none' />
+                        <format attr='border-width' value='0' />
+                        <format attr='margin' value='4' />
+                      </zone-style>
+                    </zone>
+                  </zone>
+                  <zone h='30878' id='28' name='доля продаж' w='52607' x='46924' y='33666'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <layout-options>
+            <title>
+              <formatted-text>
+                <run fontcolor='#000000' fontname='Benton Sans Book'>Общий отчет по продажам</run>
+              </formatted-text>
+            </title>
+          </layout-options>
+          <size maxheight='1650' minheight='1650' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='33' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98002' id='32' param='vert' type-v2='layout-flow' w='99062' x='469' y='999'>
+                <zone fixed-size='253' h='32667' id='21' is-fixed='true' name='объем продаж' w='46455' x='469' y='999'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='253' h='32667' id='22' is-fixed='true' name='средний чек' w='52607' x='46924' y='999'>
+                  <layout-cache fixed-size-h='1570' minwidth='260' type-h='fixed' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='227' h='29380' id='27' is-fixed='true' name='время доставки' w='46455' x='469' y='33666'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='239' h='30878' id='28' is-fixed='true' name='доля продаж' w='52607' x='46924' y='33666'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='24' h='3995' id='29' name='доля продаж' pane-specification-id='0' param='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' type-v2='size' w='52607' x='46924' y='95006'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='35955' id='3' is-fixed='true' name='динамика продаж' w='46455' x='469' y='63046'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='204' h='26467' id='15' is-fixed='true' name='топ-10' w='52607' x='46924' y='64544'>
+                  <layout-cache minwidth='260' type-h='cell' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='24' h='3995' id='16' name='топ-10' pane-specification-id='0' param='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' type-v2='color' w='52607' x='46924' y='91011'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{7866AE7C-81A3-4868-9F77-1135B39E3589}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='37'>
+    <window class='worksheet' name='динамика продаж'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{14EC71ED-BFDA-45F8-B34A-348C8D45353C}' />
+    </window>
+    <window class='worksheet' name='объем продаж'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_category_name:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{0EF02975-7A92-4D98-B940-1D9ADA1C3AD8}' />
+    </window>
+    <window class='worksheet' name='доля продаж'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' type='size' />
+            <card pane-specification-id='0' param='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_category_name:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-height' />
+      </viewpoint>
+      <simple-id uuid='{93E68EE7-CAF3-4BC5-A5B0-22A7ECFD6D4A}' />
+    </window>
+    <window class='worksheet' name='средний чек'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:product_category_name:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{ED218C16-3A87-4E16-B0FA-E668E4AD63C3}' />
+    </window>
+    <window class='worksheet' name='время доставки'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[none:order_id (order_items.csv):nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{4852064F-BA72-4813-BBF5-5341E73E1611}' />
+    </window>
+    <window class='worksheet' maximized='true' name='топ-10'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0ntg6as1byhy58194ghgc0ls8dhj].[sum:sales_value:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{7F5F30BE-6304-40B3-85C1-06CBA1072F32}' />
+    </window>
+    <window class='dashboard' name='Динамика и показатели продаж'>
+      <viewpoints>
+        <viewpoint name='время доставки'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='динамика продаж'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='доля продаж'>
+          <zoom type='fit-height' />
+        </viewpoint>
+        <viewpoint name='объем продаж'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='средний чек' />
+        <viewpoint name='топ-10'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='28' />
+      <simple-id uuid='{31A254AA-3B9C-4B6D-B8AE-49C51B4EB69D}' />
+    </window>
+  </windows>
+</workbook>
